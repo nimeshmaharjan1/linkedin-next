@@ -24,7 +24,7 @@ const Page: NextPage<Props> = ({
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="space-y-10 relative">
+      <div className="relative bg-[#FEF2Ef] dark:bg-black dark:text-white min-h-screen overflow-y-scroll md:space-y-6">
         <Header isHome={isHome} />
         <main>{children}</main>
         {/* <Footer /> */}
