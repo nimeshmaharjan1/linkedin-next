@@ -12,9 +12,11 @@ import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
 import { getProviders, signIn } from "next-auth/react";
 import { Provider } from "next-auth/providers";
 
+import FeedHeader from "@features/feed/components/Header";
+
 interface Props {
   isHome: boolean;
-  providers: Provider;
+  providers?: Provider;
 }
 
 const Header: React.FC<Props> = ({ isHome, providers }) => {
@@ -53,12 +55,7 @@ const Header: React.FC<Props> = ({ isHome, providers }) => {
           </div>
         </header>
       ) : (
-        <header className="wrapper | sticky top-0 left-0 right-0 h-15 shadow-md dark:border-gray-700 dark:shadow-gray-900 dark:bg-black">
-          <div className="px-4 container mx-auto sm:px-6 py-4 flex justify-between items-center">
-            <Logo />
-            <ThemeToggler></ThemeToggler>
-          </div>
-        </header>
+        <FeedHeader />
       )}
     </>
   );

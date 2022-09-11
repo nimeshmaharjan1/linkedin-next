@@ -1,8 +1,12 @@
 import Page from "@components/layout/Page";
 import type { NextPage } from "next";
 
-const Home: NextPage = () => {
-  return <>Lado randi</>;
+const Feed: NextPage = () => {
+  return (
+    <Page title="Feed" description="The feed page of tuza hiring">
+      Lado randi
+    </Page>
+  );
 };
 
-export default Home;
+export default Feed;
