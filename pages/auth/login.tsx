@@ -1,5 +1,5 @@
 import Page from "@components/layout/Page";
-import Hero from "@features/home/Hero";
+import Hero from "@features/home/components/Hero";
 import type { NextPage } from "next";
 import { Provider } from "next-auth/providers";
 import { getProviders } from "next-auth/react";

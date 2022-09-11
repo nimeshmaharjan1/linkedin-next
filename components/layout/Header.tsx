@@ -2,7 +2,7 @@ import { getProviders, signIn } from "next-auth/react";
 import { Provider } from "next-auth/providers";
 
 import FeedHeader from "@features/feed/components/Header";
-import HomeHeader from "@features/home/Header";
+import HomeHeader from "@features/home/components/Header";
 interface Props {
   isHome: boolean;
   providers?: Provider;
