@@ -9,12 +9,15 @@ import ExploreIcon from "@mui/icons-material/Explore";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
+import { getProviders, signIn } from "next-auth/react";
+import { Provider } from "next-auth/providers";
 
 interface Props {
   isHome: boolean;
+  providers: Provider;
 }
 
-const Header: React.FC<Props> = ({ isHome }) => {
+const Header: React.FC<Props> = ({ isHome, providers }) => {
   return (
     <>
       {isHome ? (
@@ -25,6 +28,7 @@ const Header: React.FC<Props> = ({ isHome }) => {
                 src="/logo/linkedin.svg"
                 layout="fill"
                 objectFit="contain"
+                priority
               />
             </div>
             <div className="right | flex items-center sm:divide-x divide-gray-300">
@@ -38,7 +42,10 @@ const Header: React.FC<Props> = ({ isHome }) => {
               <HeaderLink Icon={AppsOutlinedIcon} label="Work" /> */}
               </div>
               <div className="pl-4">
-                <button className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1 5 transition-all hover:border-2">
+                <button
+                  className="text-blue-700 font-semibold rounded-full border border-blue-700 px-5 py-1 5 transition-all hover:border-2"
+                  onClick={() => signIn("google", { callbackUrl: "/" })}
+                >
                   Sign In
                 </button>
               </div>
@@ -58,3 +65,12 @@ const Header: React.FC<Props> = ({ isHome }) => {
 };
 
 export default Header;
+
+export const getServerSideProps = async () => {
+  const providers = await getProviders();
+  return {
+    props: {
+      providers,
+    },
+  };
+};

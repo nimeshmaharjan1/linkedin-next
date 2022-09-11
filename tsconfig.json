@@ -4,7 +4,8 @@
     "baseUrl": "./",
     "paths": {
       "@features/*": ["features/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@lib/*": ["lib/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -20,6 +21,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/mongodb.ts"],
   "exclude": ["node_modules"]
 }

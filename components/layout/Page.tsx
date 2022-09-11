@@ -8,10 +8,15 @@ interface Props {
   children: React.ReactNode;
   title: string;
   description: string;
-  isHome: boolean;
+  isHome?: boolean;
 }
 
-const Page: NextPage<Props> = ({ children, title, description, isHome }) => {
+const Page: NextPage<Props> = ({
+  children,
+  title,
+  description,
+  isHome = false,
+}) => {
   return (
     <>
       <Head>
@@ -20,7 +25,7 @@ const Page: NextPage<Props> = ({ children, title, description, isHome }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="space-y-10 relative">
-        <Header isHome />
+        <Header isHome={isHome} />
         <main>{children}</main>
         {/* <Footer /> */}
       </div>
