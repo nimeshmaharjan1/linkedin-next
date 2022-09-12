@@ -12,10 +12,13 @@ import { Avatar } from "@mui/material";
 import HeaderLink from "@components/ui/HeaderLink";
 import { useTheme } from "next-themes";
 import ThemeToggler from "@components/ui/ThemeToggler";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [isMounted, setIsMounted] = useState(false);
   const { setTheme, resolvedTheme, theme } = useTheme();
+  const router = useRouter();
+  const goHome = () => router.push("/");
   useEffect(() => setIsMounted(true), []);
   if (!isMounted) return null;
   return (
@@ -24,9 +27,21 @@ const Header = () => {
         {isMounted && (
           <>
             {resolvedTheme === "dark" ? (
-              <Image src="/logo/dark-feed.png" width={45} height={45}></Image>
+              <Image
+                src="/logo/dark-feed.png"
+                width={45}
+                height={45}
+                onClick={goHome}
+                style={{ cursor: "pointer" }}
+              ></Image>
             ) : (
-              <Image src="/logo/light-feed.svg" width={45} height={45}></Image>
+              <Image
+                src="/logo/light-feed.svg"
+                width={45}
+                height={45}
+                onClick={goHome}
+                style={{ cursor: "pointer" }}
+              ></Image>
             )}
           </>
         )}
