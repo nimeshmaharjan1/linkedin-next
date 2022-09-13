@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import { Avatar } from "@mui/material";
@@ -8,7 +8,6 @@ import { signOut, useSession } from "next-auth/react";
 
 const Sidebar: React.FC = () => {
   const { data: session } = useSession();
-  const imageSource = session?.user?.image as string;
   const logout = () => {
     signOut();
   };
@@ -16,11 +15,11 @@ const Sidebar: React.FC = () => {
     <section className="space-y-2 min-w-max max-w-lg">
       <div className="top | bg-white dark:bg-[#1D2226] rounded-lg overflow-hidden relative flex flex-col items-center border text-center border-gray-300 dark:border-none">
         <div className="relative w-full h-14">
-          <Image src="https://rb.gy/i26zak" layout="fill" priority />
+          <Image src="/logo/sidebar.webp" layout="fill" priority />
         </div>
         <Avatar
           onClick={logout}
-          src={imageSource}
+          src={session?.user?.image!}
           className="!h-14 !w-14 !border-2 !absolute !top-4 !cursor-pointer"
         />
         <div className="mt-5 py-4 space-x-0.5">

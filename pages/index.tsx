@@ -7,7 +7,14 @@ import { CtxOrReq } from "next-auth/client/_utils";
 import { getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
+import Body from "@features/feed/Feed";
+import { useRecoilState } from "recoil";
+import { isModalOpenState, modalTypeState } from "@store/modal";
+import Modal from "@components/ui/Modal";
+
 const Feed: NextPage = () => {
+  const [isModalOpen, setIsModalOpen] = useRecoilState(isModalOpenState);
+  const [modalType, setModalType] = useRecoilState(modalTypeState);
   const router = useRouter();
   const { status } = useSession({
     required: true,
@@ -21,9 +28,15 @@ const Feed: NextPage = () => {
       <section className="flex justify-center gap-x-5 px-4 sm:px-12">
         <div className="flex flex-col md:flex-row gap-5">
           <Sidebar />
-          {/* Feed */}
+          <Body />
         </div>
         {/* Widgets */}
+        {isModalOpen && (
+          <Modal
+            handleClose={() => setIsModalOpen(false)}
+            type={modalType}
+          ></Modal>
+        )}
       </section>
     </Page>
   );

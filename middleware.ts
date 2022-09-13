@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === "/") {
     const session = await getToken({
       req: request,
-      secret: process.env.AUTH_SECRET,
+      secret: process.env.NEXTAUTH_SECRET,
       secureCookie: process.env.NODE_ENV === "production",
     });
     if (!session) return NextResponse.redirect(`${origin}/auth/login`);

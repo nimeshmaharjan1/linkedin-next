@@ -7,6 +7,7 @@ import { Session } from "next-auth";
 
 import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
+import { RecoilRoot } from "recoil";
 
 export interface CustomAppProps extends AppProps {
   Component: NextComponentType;
@@ -19,9 +20,11 @@ function MyApp({
 }: CustomAppProps) {
   return (
     <SessionProvider session={session}>
-      <ThemeProvider attribute="class">
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <RecoilRoot>
+        <ThemeProvider attribute="class">
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </RecoilRoot>
     </SessionProvider>
   );
 }

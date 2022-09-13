@@ -7,19 +7,15 @@ export const authOptions = {
   // Configure one or more authentication providers
   providers: [
     GoogleProvider({
-      clientId:
-        "1069581278258-qa6dm81091gt1h2pe2bmhbmea3gcuvgo.apps.googleusercontent.com" ||
-        process.env.AUTH_SECRET,
-      clientSecret:
-        "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" ||
-        (process.env.GOOGLE_CLIENT_SECRET as string),
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
     // ...add more providers here
   ],
-  secret: "40472782775577c963c7f52af5afcbeb",
+  secret: process.env.NEXTAUTH_SECRET,
   adapter: MongoDBAdapter(MongoPromise) as Adapter,
   pages: {
-    signIn: "/auth/login",
+    signIn: "/",
   },
   session: {
     strategy: "jwt" as SessionStrategy,
