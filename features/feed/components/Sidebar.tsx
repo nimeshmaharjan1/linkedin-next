@@ -15,7 +15,7 @@ const Sidebar: React.FC = () => {
     <section className="space-y-2 min-w-max max-w-lg">
       <div className="top | bg-white dark:bg-[#1D2226] rounded-lg overflow-hidden relative flex flex-col items-center border text-center border-gray-300 dark:border-none">
         <div className="relative w-full h-14">
-          <Image src="/logo/sidebar.webp" layout="fill" priority />
+          <Image src="/logo/sidebar.webp" layout="fill" />
         </div>
         <Avatar
           onClick={logout}

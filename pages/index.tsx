@@ -11,6 +11,7 @@ import Body from "@features/feed/Feed";
 import { useRecoilState } from "recoil";
 import { isModalOpenState, modalTypeState } from "@store/modal";
 import Modal from "@components/ui/Modal";
+import { AnimatePresence } from "framer-motion";
 
 const Feed: NextPage = () => {
   const [isModalOpen, setIsModalOpen] = useRecoilState(isModalOpenState);
@@ -31,12 +32,14 @@ const Feed: NextPage = () => {
           <Body />
         </div>
         {/* Widgets */}
-        {isModalOpen && (
-          <Modal
-            handleClose={() => setIsModalOpen(false)}
-            type={modalType}
-          ></Modal>
-        )}
+        <AnimatePresence>
+          {isModalOpen && (
+            <Modal
+              handleClose={() => setIsModalOpen(false)}
+              type={modalType}
+            ></Modal>
+          )}
+        </AnimatePresence>
       </section>
     </Page>
   );

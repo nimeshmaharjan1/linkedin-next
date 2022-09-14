@@ -27,7 +27,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="right | relative lg:absolute w-80 h-80 lg:w-[650px] lg:h-[650px] top-14 right-5">
-        <Image src="/images/hero/hero.svg" layout="fill" priority></Image>
+        <Image src="/images/hero/hero.svg" layout="fill"></Image>
       </div>
     </main>
   );

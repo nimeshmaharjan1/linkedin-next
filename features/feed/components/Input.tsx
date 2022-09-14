@@ -14,7 +14,6 @@ const Input = () => {
   const [isModalOpen, setIsModalOpen] = useRecoilState(isModalOpenState);
   const [modalType, setModalType] = useRecoilState(modalTypeState);
   const { data: session } = useSession();
-  const userImage = session?.user?.image as string;
   const openModal = () => {
     setIsModalOpen(true);
     setModalType("dropIn");
@@ -22,7 +21,10 @@ const Input = () => {
   return (
     <div className="bg-white dark:bg-[#1D2226] rounded-lg p-3 space-y-3 border border-gray-300 dark:border-none">
       <div className="flex items-center space-x-2">
-        <Avatar src={userImage} className="!h-10 !w-10 cursor-pointer"></Avatar>
+        <Avatar
+          src={session?.user?.image!}
+          className="!h-10 !w-10 cursor-pointer"
+        ></Avatar>
         <motion.button
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}

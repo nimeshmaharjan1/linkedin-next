@@ -17,12 +17,7 @@ const Header = () => {
       <header>
         <div className="flex justify-between md:justify-around items-center py-4 container mx-auto px-4">
           <div className="left | relative w-36 h-10">
-            <Image
-              src="/logo/linkedin.svg"
-              layout="fill"
-              objectFit="contain"
-              priority
-            />
+            <Image src="/logo/linkedin.svg" layout="fill" objectFit="contain" />
           </div>
           <div className="right | flex items-center sm:divide-x divide-gray-300">
             <div className="nav-links | hidden sm:flex space-x-8 pr-4">
